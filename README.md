@@ -21,7 +21,6 @@ include('Mago.php');
 
 $mago = new Mago(); 
 $mago->setToken('8zBqL7TI2Um30jn59oW4ihF3','sandbox'); 
-
 ```
 
 ## 3. Query the MAGO API
@@ -31,9 +30,7 @@ $mago->setToken('8zBqL7TI2Um30jn59oW4ihF3','sandbox');
 If token and enviroment were properly set up, access your information by doing so.
 
 ```php
-
 $myInfo = $mago->getMe();
-
 ```
 
 ### 3.2 Create Pickup Locations
@@ -74,15 +71,12 @@ For example, the following code will edit the field coordinates of location with
 Location's _id can be fetch by listing all locations (see 3.3).
 
 ```php
-
 $patch = array(
 	'coordinates' => [-99.169775, 19.378676], // [long, lat]
 	'_id' => '570ec2531d0452d8434d18b9'
 );
 
 $editedLocation = $mago->editLocation($patch);
-
-
 ```
 
 
@@ -108,8 +102,6 @@ To createa a new order the following information is needed:
     * **internal_order_number:** Internal unique identifier for the new order.
 
 ```php
-
-
 $order = array(
 
 	'delivery_address'=> 'Calle Tonala 10',
@@ -132,9 +124,7 @@ $order = array(
 	
 );
 
-
 $newOrder = $mago->createOrder($order);
-
 ```
 If the creation of a new order is succesful, the server's answer will look like this:
 ```json
@@ -159,3 +149,4 @@ It is also posible to check the order status & extra information by using the in
 ```php
 $orderInfo = $mago->getOrderInfoByInternal('#12345');
 ```
+git remote add origin https://github.com/mercadoni/mago-api-php.git
