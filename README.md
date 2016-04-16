@@ -56,10 +56,7 @@ All the pickup locations available can be listed like this:
 
 
 ```php
-
 $myLocations = $mago->getLocations();
-
-
 ```
 
 ### 3.4 Update Information of a Pickup Location
@@ -87,7 +84,7 @@ To createa a new order the following information is needed:
 1. Custmer's Address Information:
 	* **delivery_address:** customer's delivery address.
 	* **delivery_coordinates:** customer's delivery address coordinates.
-	* **delivery_address:** customer's delivery address.
+	* **city_code:** customer's delivery address city_code. 'MEX' for México City and 'BOG' for Bogotá are available.
 2. Delivery times:
 	* **delivery_time_from:** UTC time of earliest availability at pickup location.
 	* **delivery_time_to:** UTC time of latest arrival to customer.
@@ -149,4 +146,3 @@ It is also posible to check the order status & extra information by using the in
 ```php
 $orderInfo = $mago->getOrderInfoByInternal('#12345');
 ```
-git remote add origin https://github.com/mercadoni/mago-api-php.git
