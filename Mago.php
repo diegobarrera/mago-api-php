@@ -4,7 +4,7 @@ class Mago {
     
     public $apikey;
     public $base;
-    public $root = 'http://107.170.222.193';
+    public $root = 'http://107.170.222.193/';
     public $version = 'v1.0-api';
 
     public function __construct() {
