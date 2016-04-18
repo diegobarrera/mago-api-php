@@ -33,7 +33,7 @@ If token and enviroment were properly set up, access your information by doing s
 $myInfo = $mago->getMe();
 ```
 
-myInfo will print:
+$myInfo will print:
 
 ```json
 {
