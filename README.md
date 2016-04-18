@@ -50,6 +50,29 @@ $newLocation = $mago->createLocation($location);
 
 ```
 
+$newLocation will print:
+
+```json
+{
+  	"data": {
+
+	  	"address": "Monterrey 28, Roma Norte, Cd. de México",
+		"name": "Main Warehouse",
+		"from": {
+			"city": {
+				"code": "MEX",
+				"name": "Cd. de México"
+			}
+		},
+		"active": true,
+		"loc": {
+			"coordinates": [-99.169775, 19.378938]
+		}
+	}
+}
+
+```
+
 ### 3.3 List All Pickup Locations
 
 All the pickup locations available can be listed like this:
@@ -57,6 +80,45 @@ All the pickup locations available can be listed like this:
 
 ```php
 $myLocations = $mago->getLocations();
+```
+
+$myLocations will print:
+
+```json
+{
+  	"data": [{
+
+  		"_id" : "570ec2531d0452d8434d18b9",
+	  	"address": "Monterrey 28, Roma Norte, Cd. de México",
+		"name": "Main Warehouse",
+		"from": {
+			"city": {
+				"code": "MEX",
+				"name": "Cd. de México"
+			}
+		},
+		"active": true,
+		"loc": {
+			"coordinates": [-99.169775, 19.378938]
+		}
+	},{
+
+		"_id" : "570ec2531d0452d6732x56c7",
+	  	"address": "San Luis Potosí 149, Roma Norte, Cd. de México",
+		"name": "Second Warehouse",
+		"from": {
+			"city": {
+				"code": "MEX",
+				"name": "Cd. de México"
+			}
+		},
+		"active": true,
+		"loc": {
+			"coordinates": [-99.169651, 19.378765]
+		}
+	}]
+}
+
 ```
 
 ### 3.4 Update Information of a Pickup Location
@@ -74,6 +136,29 @@ $patch = array(
 );
 
 $editedLocation = $mago->editLocation($patch);
+```
+
+$editedLocation will print:
+
+```json
+{
+  	"data": {
+  		"_id" : "570ec2531d0452d8434d18b9",
+	  	"address": "Monterrey 28, Roma Norte, Cd. de México",
+		"name": "Main Warehouse",
+		"from": {
+			"city": {
+				"code": "MEX",
+				"name": "Cd. de México"
+			}
+		},
+		"active": true,
+		"loc": {
+			"coordinates": [-99.169775, 19.378676] //Updated field
+		}
+	}
+}
+
 ```
 
 
