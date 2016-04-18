@@ -192,13 +192,13 @@ The API will respond with the following information:
 
 Status available are:
 
-* on_cart: Order couldn't be process due to errors at creation. Will not be processed.
+* on_cart: Order couldn't be process due to errors at creation. Will not be fulfilled.
 * processing: Order is ready for fulfilment.
-* preassigned: Order is assigned to a delivery guy, but not yet fulfilling.
-* assigned: Order is assigned to a delivery guy and fulfilling.
+* preassigned: Order is assigned to a delivery person, but not yet fulfilling.
+* assigned: Order is assigned to a delivery person and fulfilling.
 * shopping: Order is currently being picked at pickup location.
 * shopping_done: Order was picked from pickup location but not yet being delivered.
-* out_for_delivery: Order is being deliver
+* out_for_delivery: Order is being delivered.
 * delivered: Order was succesfully delivered.
 * canceled: Order was canceled.
 
