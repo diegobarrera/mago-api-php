@@ -33,6 +33,24 @@ If token and enviroment were properly set up, access your information by doing s
 $myInfo = $mago->getMe();
 ```
 
+myInfo will print:
+
+```json
+{
+  	"data": {
+  		"_id" : "560c852e5b7c963b001fd9db",
+	  	"name": "Best Online Store",
+		"from": {
+			"country": {
+				"code": "MEX",
+				"name": "México"
+			}
+		}
+	}
+}
+
+```
+
 ### 3.2 Create Pickup Locations
 
 In order to create new orders with Mago, pickup locations need to be created first. It is recommended that you set up all your pickup locations first, as they need to be approved befored they can be used. Later on, when creating a new order (see 3.5), the pickup location unique identifier *_id* field is required along other fields.
@@ -55,7 +73,7 @@ $newLocation will print:
 ```json
 {
   	"data": {
-
+  		"_id" : "570ec2531d0452d8434d18b9",
 	  	"address": "Monterrey 28, Roma Norte, Cd. de México",
 		"name": "Main Warehouse",
 		"from": {
