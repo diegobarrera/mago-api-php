@@ -146,3 +146,61 @@ It is also posible to check the order status & extra information by using the in
 ```php
 $orderInfo = $mago->getOrderInfoByInternal('#12345');
 ```
+The API will respond with the following information:
+
+* **order:** Mago's order id.
+* **pickup_location:** Pickup location id.
+* **internal_order_number:** Internal order unique identifier specified at order creation.
+* **internal_order_number:** Internal order unique identifier specified at order creation.
+* **status:** Order's current status.
+* **status_time:** Order's historical status changes with timestamps.
+
+
+```json
+{
+  "data": {
+    "order": "57151a0109c4af85264a4c3f",
+    "location": "561de61856bd7c4000f1572a",
+    "internal_order_number": "#0123456789",
+    "scheduled_for_delivery_at": "2016-04-18T17:30.000Z",
+    "status": "delivered",
+    "status_time": [
+      {
+        "created": "2016-04-18T17:31:53.662Z",
+        "status": "processing"
+      },
+      {
+        "created": "2016-04-18T17:32:51.507Z",
+        "status": "assigned"
+      },
+      {
+        "created": "2016-04-18T17:32:57.570Z",
+        "status": "shopping"
+      },
+      {
+        "created": "2016-04-18T17:33:13.519Z",
+        "status": "out_for_delivery"
+      },
+      {
+        "created": "2016-04-18T17:33:19.099Z",
+        "status": "delivered"
+      }
+    ]
+  }
+}
+```
+
+Status available are:
+
+* on_cart: Order couldn't be process due to errors at creation. Will not be processed.
+* processing: Order is ready for fulfilment.
+* preassigned: Order is assigned to a delivery guy, but not yet fulfilling.
+* assigned: Order is assigned to a delivery guy and fulfilling.
+* shopping: Order is currently being picked at pickup location.
+* shopping_done: Order was picked from pickup location but not yet being delivered.
+* out_for_delivery: Order is being deliver
+* delivered: Order was succesfully delivered.
+* canceled: Order was canceled.
+
+
+
