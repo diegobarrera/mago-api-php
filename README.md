@@ -186,7 +186,7 @@ To createa a new order the following information is needed:
 
 1. Custmer's Address Information:
 	* **delivery_address:** customer's delivery address.
-	* **delivery_address_comments:** customer's delivery address.
+	* **delivery_address_comments:** customer's delivery address extra comments.
 	* **delivery_coordinates:** customer's delivery address coordinates.
 	* **city_code:** customer's delivery address city_code. 'MEX' for México City and 'BOG' for Bogotá are available.
 2. Delivery times:
