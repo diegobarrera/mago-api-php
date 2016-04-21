@@ -186,6 +186,7 @@ To createa a new order the following information is needed:
 
 1. Custmer's Address Information:
 	* **delivery_address:** customer's delivery address.
+	* **delivery_address_comments:** customer's delivery address.
 	* **delivery_coordinates:** customer's delivery address coordinates.
 	* **city_code:** customer's delivery address city_code. 'MEX' for México City and 'BOG' for Bogotá are available.
 2. Delivery times:
@@ -196,7 +197,7 @@ To createa a new order the following information is needed:
 	* **pickup_vehicle:** Vehicle needed for the delivery. 'car', 'motorbike' and 'van' are availabe.
 4. Payment information:
  	* **payment_charge:** Amount to charge to customer on arrival. By default is set to 0 *which means no charge*. This field is optional.
-	* **payment_method:** With which payment method the customer will pay. Both 'cash' are 'dataphone' available. By default is set to cash. This field is optional.
+	* **payment_method:** With which payment method the customer will pay. Both 'cash' and 'dataphone' available. By default is set to cash. This field is optional.
 5. Extra information:
 	
     * **internal_order_number:** Internal unique identifier for the new order.
@@ -205,6 +206,7 @@ To createa a new order the following information is needed:
 $order = array(
 
 	'delivery_address'=> 'Calle Tonala 10',
+	'delivery_address_comments'=> 'Entre Puebla y Durango',
 	'delivery_coordinates'=> [-99.169775, 19.378938], // [long, lat]
 	'city_code'=> 'MEX', // 'MEX' for México City and 'BOG' for Bogotá are available.
 
@@ -213,6 +215,7 @@ $order = array(
 
 	'pickup_location'=> '570ec2531d0452d8434d18b9',
 	'pickup_vehicle'=> 'car',
+	'pickup_comments'=> 'El numero secreto es 12345',
 
 	'customer_name'=> 'Alvaro Burgos',
 	'customer_phone_number'=> '675135998',
