@@ -27,6 +27,8 @@ $mago->setToken('8zBqL7TI2Um30jn59oW4ihF3','sandbox');
 
 ### 3.1 Get My Information
 
+**POST**    partner.mercadoni.com/v1.0-api/me 
+
 If token and enviroment were properly set up, access your information by doing so.
 
 ```php
@@ -52,6 +54,8 @@ $myInfo will print:
 ```
 
 ### 3.2 Create Pickup Locations
+
+**POST**    partner.mercadoni.com/v1.0-api/post_locations
 
 In order to create new orders with Mago, pickup locations need to be created first. It is recommended that you set up all your pickup locations first, as they need to be approved befored they can be used. Later on, when creating a new order (see 3.5), the pickup location unique identifier *_id* field is required along other fields.
 
@@ -92,6 +96,8 @@ $newLocation will print:
 ```
 
 ### 3.3 List All Pickup Locations
+
+**POST**    partner.mercadoni.com/v1.0-api/list_locations
 
 All the pickup locations available can be listed like this:
 
@@ -141,6 +147,8 @@ $myLocations will print:
 
 ### 3.4 Update Information of a Pickup Location
 
+**POST**    partner.mercadoni.com/v1.0-api/put_locations
+
 An already created pickup location can be edited. To do so, specify the location to edit with the '_id' field along with the fields to be edited. The fields that are available for editing are name, address, city_code and coordinates.
 
 For example, the following code will edit the field coordinates of location with _id '570ec2531d0452d8434d18b9'.
@@ -181,6 +189,8 @@ $editedLocation will print:
 
 
 ### 3.5 Create a new order
+
+**POST**    partner.mercadoni.com/v1.0-api/post_orders
 
 To createa a new order the following information is needed:
 
@@ -264,6 +274,9 @@ If the creation of a new order is succesful, the server's answer will look like 
 
 
 ### 3.6 Check Order Status & Information
+
+**POST**    partner.mercadoni.com/v1.0-api/get_order
+**POST**    partner.mercadoni.com/v1.0-api/get_order_by_internal
 
 Once a new order created, check the order status & extra information by using Mago's order id.
 
