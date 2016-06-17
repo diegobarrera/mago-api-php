@@ -232,7 +232,7 @@ $order = array(
 	'payment_charge'=> 399, //optional. 0 means no charge
 	'payment_method'=> 'cash', //optional. 'cash' be default.
 
-	'internal_order_number'=> '#12345'
+	'internal_order_number'=> '#12345',
 	'packages'=> array(
 		0 => array( 
 			'qty': 1, 
