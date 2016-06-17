@@ -4,7 +4,7 @@ class Mago {
     
     public $apikey;
     public $base;
-    public $root = 'http://107.170.222.193/';
+    public $root = 'partner.mercadoni.com';
     public $version = 'v1.0-api';
 
     public function __construct() {
@@ -13,7 +13,6 @@ class Mago {
     }
    
     public function setToken($apikey, $environment) {
-
         $this->apikey = $apikey;    
     }
 

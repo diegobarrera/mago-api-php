@@ -172,7 +172,7 @@ $editedLocation will print:
 		},
 		"active": true,
 		"loc": {
-			"coordinates": [-99.169775, 19.378676] //Updated field
+			"coordinates": [-99.169775, 19.378676]
 		}
 	}
 }
@@ -184,23 +184,32 @@ $editedLocation will print:
 
 To createa a new order the following information is needed:
 
-1. Custmer's Address Information:
+ - Custmer's Address Information:
 	* **delivery_address:** customer's delivery address.
 	* **delivery_address_comments:** customer's delivery address extra comments.
 	* **delivery_coordinates:** customer's delivery address coordinates.
 	* **city_code:** customer's delivery address city_code. 'MEX' for México City and 'BOG' for Bogotá are available.
-2. Delivery times:
+ - Delivery times:
 	* **delivery_time_from:** UTC time of earliest availability at pickup location.
 	* **delivery_time_to:** UTC time of latest arrival to customer.
-3. Pickup information:
- 	* **pickup_location:** Pickup location's unique identifier (_id). See 3.3 for more information.
+ - Pickup information:
+ 	* **pickup_location:** Pickup location's unique identifier (_id). See 3.3 for more information. If not sent, the system will choose closest location to customer.
 	* **pickup_vehicle:** Vehicle needed for the delivery. 'car', 'motorbike' and 'van' are availabe.
-4. Payment information:
+	* **pickup_comments:** These comments will pop up to the delivery person at pickup time.
+ - Customer Information:
+ 	* **customer_name:** Customer's full name.
+	* **customer_phone_number:** Customer's  contact number full name.
+ - Payment information:
  	* **payment_charge:** Amount to charge to customer on arrival. By default is set to 0 *which means no charge*. This field is optional.
 	* **payment_method:** With which payment method the customer will pay. Both 'cash' and 'dataphone' available. By default is set to cash. This field is optional.
-5. Extra information:
-	
+ - Extra information:
     * **internal_order_number:** Internal unique identifier for the new order.
+ - Packages 
+	* **packages:**: an array of pickup packages
+		* qty: qty of packages.
+		* name: package's name.
+		* sku: package's unique identifier.
+		* volume: package's volumetric volume (squared meters).
 
 ```php
 $order = array(
@@ -224,7 +233,21 @@ $order = array(
 	'payment_method'=> 'cash', //optional. 'cash' be default.
 
 	'internal_order_number'=> '#12345'
-	
+	'packages'=> array(
+		0 => array( 
+			'qty': 1, 
+			'name': 'Coca-Cola 33Cl',
+			'SKU' : '23WVC233GHCCX',
+			'volume' : 0.0033
+		),
+		1 => array( 
+			'qty': 5,
+			'name': 'Coca-Cola 2L',
+			'SKU' : '23QQQ233GHCCX',
+			'volume' : 0.0159
+		)
+	);
+
 );
 
 $newOrder = $mago->createOrder($order);
@@ -234,7 +257,8 @@ If the creation of a new order is succesful, the server's answer will look like 
 {
   "success": true,
   "error": null,
-  "order": "571188a988b4ab1c26099ba5"
+  "order": "571188a988b4ab1c26099ba5",
+  "order_number": "MA3413434242"
 }
 ```
 
@@ -255,6 +279,7 @@ $orderInfo = $mago->getOrderInfoByInternal('#12345');
 The API will respond with the following information:
 
 * **order:** Mago's order id.
+* **order_number:** Mago's order number.
 * **pickup_location:** Pickup location id.
 * **internal_order_number:** Internal order unique identifier specified at order creation.
 * **internal_order_number:** Internal order unique identifier specified at order creation.
@@ -266,7 +291,8 @@ The API will respond with the following information:
 {
   "data": {
     "order": "57151a0109c4af85264a4c3f",
-    "location": "561de61856bd7c4000f1572a",
+    "order_number": "MA3413434242",
+    "pick_up_location": "561de61856bd7c4000f1572a",
     "internal_order_number": "#0123456789",
     "scheduled_for_delivery_at": "2016-04-18T17:30.000Z",
     "status": "delivered",
