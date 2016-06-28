@@ -65,7 +65,8 @@ $location = array(
    	'name' => 'Main WareHouse',
 	'address' => 'Monterrey 28, Roma Norte, Cd. de México', 
 	'city_code' => 'MEX', // 'MEX' for México City and 'BOG' for Bogotá are available.
-	'coordinates' => [-99.169775, 19.378938] // [long, lat]
+	'coordinates' => [-99.169775, 19.378938], // [long, lat]
+	'external_id' => '234123'
 );
 
 $newLocation = $mago->createLocation($location);
@@ -89,7 +90,10 @@ $newLocation will print:
 		"active": true,
 		"loc": {
 			"coordinates": [-99.169775, 19.378938]
-		}
+		},
+		"external": {
+        	"id": "234123"
+      	}
 	}
 }
 
@@ -124,7 +128,10 @@ $myLocations will print:
 		"active": true,
 		"loc": {
 			"coordinates": [-99.169775, 19.378938]
-		}
+		},
+		"external": {
+        	"id": "234123"
+      	}
 	},{
 
 		"_id" : "570ec2531d0452d6732x56c7",
@@ -139,7 +146,10 @@ $myLocations will print:
 		"active": true,
 		"loc": {
 			"coordinates": [-99.169651, 19.378765]
-		}
+		},
+		"external": {
+        	"id": "234126"
+      	}
 	}]
 }
 
@@ -181,7 +191,10 @@ $editedLocation will print:
 		"active": true,
 		"loc": {
 			"coordinates": [-99.169775, 19.378676]
-		}
+		},
+		"external": {
+        	"id": "234123"
+      	}
 	}
 }
 
@@ -256,8 +269,7 @@ $order = array(
 			'SKU' : '23QQQ233GHCCX',
 			'volume' : 0.0159
 		)
-	);
-
+	)
 );
 
 $newOrder = $mago->createOrder($order);
