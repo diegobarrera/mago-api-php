@@ -342,7 +342,11 @@ The API will respond with the following information:
         "created": "2016-04-18T17:33:19.099Z",
         "status": "delivered"
       }
-    ]
+    ],
+    "rating": {
+    	value: 5,
+    	comment: "Muy buen servicio"
+	}
   }
 }
 ```
@@ -359,5 +363,63 @@ Status available are:
 * delivered: Order was succesfully delivered.
 * canceled: Order was canceled.
 
+
+
+### 3.7 Rate Order
+
+**POST**    partner.mercadoni.com/v1.0-api/rate_order
+
+To rate an existing order use the rateOrder method using the _id given at order creation.
+
+```php
+$rating = array(
+	'_id' => '57151a0109c4af85264a4c3f',
+	'value' => 5,
+	'comment' => 'Muy buen servicio'
+);
+
+$ratedOrder = $mago->rateOrder($rating);
+```
+
+ratedOrder will look like:
+
+```json
+{
+  "data": {
+    "order": "57151a0109c4af85264a4c3f",
+    "order_number": "SS61100000",
+    "internal_order_number": "#0123456789",
+    "rating": {
+    	"value": 5,
+    	"comment": "Muy buen servicio"
+	}
+  }
+}
+```
+
+### 3.8 Cancel Order
+
+**POST**    partner.mercadoni.com/v1.0-api/cancel_order
+
+To rate an existing order use the rateOrder method using the _id given at order creation.
+
+```php
+$order = array(
+	'_id' => '57151a0109c4af85264a4c3f',
+	'reason' => 'El cliente quiere cancelar'
+);
+
+$canceledOrder = $mago->cancelOrder($order);
+
+```
+
+canceledOrder will look like:
+
+```json
+{
+  "success": true,
+  "error": null
+}
+```
 
 
