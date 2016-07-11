@@ -260,13 +260,13 @@ $order = array(
 		0 => array( 
 			'qty': 1, 
 			'name': 'Coca-Cola 33Cl',
-			'SKU' : '23WVC233GHCCX',
+			'sku' : '23WVC233GHCCX',
 			'volume' : 0.0033
 		),
 		1 => array( 
 			'qty': 5,
 			'name': 'Coca-Cola 2L',
-			'SKU' : '23QQQ233GHCCX',
+			'sku' : '23QQQ233GHCCX',
 			'volume' : 0.0159
 		)
 	)
