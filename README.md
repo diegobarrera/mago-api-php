@@ -248,7 +248,8 @@ $order = array(
 	'pickup_location'=> '570ec2531d0452d8434d18b9',
 	'pickup_vehicle'=> 'car',
 	'pickup_comments'=> 'El numero secreto es 12345',
-
+	'owner'=> 'mercadoni',
+	
 	'customer_name'=> 'Alvaro Burgos',
 	'customer_phone_number'=> '675135998',
 
