@@ -9,7 +9,7 @@ class Mago {
 
     public function __construct() {
         if (!function_exists('curl_init')) throw new Exception('The curl extension for PHP is required.');
-        $this->base = $this->root.$this->version;
+        $this->base = $this->root.'/'.$this->version;
     }
    
     public function setToken($apikey, $environment) {
